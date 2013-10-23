@@ -1,0 +1,3 @@
+[submodule "vendor/semantic-ui"]
+	path = vendor/semantic-ui
+	url = https://github.com/jlukic/Semantic-UI.git
