@@ -37,7 +37,7 @@ module.exports = function(grunt) {
         },
         files: [{
           expand: true,
-          cwd: 'source/templates',
+          cwd: 'source/jade',
           src: '**/*.jade',
           dest: 'build',
           ext: '.html'
@@ -69,7 +69,7 @@ module.exports = function(grunt) {
         atBegin: true
       },
       templates: {
-        files: 'source/templates/**/*.jade',
+        files: 'source/jade/**/*.jade',
         tasks: ['jade:dist']
       },
       jshint: {
