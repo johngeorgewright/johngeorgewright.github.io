@@ -1,0 +1,32 @@
+{
+  "name": "johngeorgewright.github.io",
+  "version": "0.0.0",
+  "description": "My GitHub pages",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/johngeorgewright/johngeorgewright.github.io.git"
+  },
+  "author": "John Wright <johngeorge.wright@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/johngeorgewright/johngeorgewright.github.io/issues"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "~0.6.4",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt": "~0.4.1",
+    "jade": "~0.35.0",
+    "grunt-contrib-jade": "~0.8.0",
+    "grunt-contrib-less": "~0.8.0",
+    "less": "~1.5.0",
+    "grunt-contrib-coffee": "~0.7.0",
+    "coffee-script": "~1.6.3",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-uglify": "~0.2.4",
+    "grunt-contrib-connect": "~0.5.0"
+  }
+}

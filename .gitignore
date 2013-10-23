@@ -1,0 +1,7 @@
+build
+.env
+.exrc
+node_modules
+*.log
+*.swp
+
