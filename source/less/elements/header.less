@@ -1,0 +1,26 @@
+@import '../config';
+
+.ui.header {
+  h1&, h2&, h3&, h4&, h5& {
+    color: @header-color;
+    font-family: @mono-font-family;
+  }
+
+  hgroup h1& {
+    margin-bottom: 0;
+  }
+
+  hgroup h2& {
+    color: @grey;
+    margin-top: 0;
+  }
+}
+
+hgroup {
+  margin-bottom: 2rem;
+}
+
+header {
+  border-bottom: 1px dashed @green;
+}
+

@@ -1,3 +1,3 @@
-server: grunt --gruntfile Gruntfile.server.js
+server: grunt connect:dev
 build: grunt watch
 

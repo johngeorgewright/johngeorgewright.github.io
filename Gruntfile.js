@@ -1,4 +1,4 @@
-/*global module:false*/
+/*global module:false, require:false, process:false */
 module.exports = function (grunt) {
 
   // Project configuration.
@@ -21,6 +21,26 @@ module.exports = function (grunt) {
     //     dest: 'dist/<%= pkg.name %>.js'
     //   }
     // },
+    connect: {
+      dev: {
+        options: {
+          base: 'build',
+          debug: true,
+          keepalive: true,
+          port: process.env.PORT || 5000,
+          livereloadPort: 35729,
+          middleware: function (connect, options) {
+            var livereload = require('connect-livereload')({
+                  port: options.livereloadPort
+                });
+            return [
+              livereload,
+              connect.static(options.base)
+            ];
+          }
+        }
+      }
+    },
     copy: {
       semanticUI: {
         files: [{
@@ -99,10 +119,11 @@ module.exports = function (grunt) {
     },
     watch: {
       options: {
-        atBegin: true
+        atBegin: true,
+        livereload: '<%= connect.dev.options.livereloadPort %>'
       },
       less: {
-        files: '<%= less.dev.files %>',
+        files: 'source/less/**/*.less',
         tasks: ['less:dev']
       },
       templates: {
@@ -118,6 +139,7 @@ module.exports = function (grunt) {
 
   // These plugins provide necessary tasks.
   // grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-jade');

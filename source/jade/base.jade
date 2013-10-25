@@ -1,3 +1,6 @@
+mixin navItem(label, href)
+  a.item(href=href)= label
+
 doctype 5
 html(lang="en")
   head
@@ -9,12 +12,12 @@ html(lang="en")
       script(src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js")
       script(src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.3.0/respond.js")
   body
-    header
-      nav.ui.menu
+    nav.ui.inverted.menu
+      .container
         a.header.item Title
         ul
           li
-            a.item Link
-    .content
+            +navItem('Link', '#')
+    main.container
       block content
 
