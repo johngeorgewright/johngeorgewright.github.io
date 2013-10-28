@@ -1,4 +1,14 @@
 /*global module:false, require:false, process:false */
+
+var marked = require('marked'),
+    hljs   = require('highlight.js');
+
+marked.setOptions({
+  highlight: function (code, lang) {
+    return hljs.highlight(lang, code).value;
+  }
+});
+
 module.exports = function (grunt) {
 
   // Project configuration.
