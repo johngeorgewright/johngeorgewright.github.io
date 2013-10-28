@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>John George Wright on GitHub</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/vendor/semantic-ui/css/semantic.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/7.3/styles/zenburn.min.css">
+    <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.3.0/respond.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <nav class="ui inverted menu">
+      <div class="container"><a href="/" class="header item">jgw</a>
+        <ul>
+          <li><a href="/angular-xml" class="item">Angular XML</a>
+          </li>
+          <li><a href="/semantic-suite" class="item">Sematic Suite</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <main class="container">
+      <article>
+        <header>
+          <hgroup>
+            <h1 class="ui header">Semantic Suite</h1>
+            <h2 class="ui header">Alpha</h2>
+          </hgroup>
+          <p>This will be a semantic style testing suite for JavaScript and then eventually other languages.</p>
+        </header>
+        <h2>Why make yet another testing suite?</h2>
+        <p>Good point... why bother. There are some great testing suites out there already and there might not be much difference. The only difference I'm putting forward is less code and a more readable interface.</p>
+        <p>Let's take the old "calculator" example. (I'll first write these examples in CoffeeScript as it's makes Semantic Suite look even better).</p>
+        <div class="ui two column grid">
+          <div class="column"><p>Here&#39;s the example using the Jasmine testing suite:</p>
+<pre><code class="lang-coffeescript">describe <span class="string">"Calculator"</span>, -&gt;
+
+  calculator = <span class="literal">null</span>
+
+  beforeEach -&gt;
+    calculator = <span class="keyword">new</span> Calculator()
+
+  describe <span class="string">".add()"</span>, -&gt;
+
+    beforeEach -&gt;
+      calculator.left = <span class="number">50</span>
+      calculator.right = <span class="number">70</span>
+      calculator.add()
+
+    it <span class="string">"will sum the 2 numbers"</span>, -&gt;
+      expect(calculator.total).toBe <span class="number">120</span></code></pre>
+
+          </div>
+          <div class="column"><p>Here&#39;s the same example using Semantic Suite.</p>
+<pre><code class="lang-coffeescript"><span class="string">"Calculator"</span>.features -&gt;
+  Scenario -&gt;
+    Given <span class="string">'calculator'</span>, -&gt; <span class="keyword">new</span> Calculator()
+    When -&gt; calculator().left = <span class="number">50</span>
+    And  -&gt; calculator().right = <span class="number">70</span>
+    And  -&gt; calculator().add()
+    Then -&gt; expect(calculator().total).to.be <span class="number">120</span></code></pre>
+
+          </div>
+        </div>
+        <p>If you've used any testing suite with "Gherkin" syntax, or used something like "RSpec" you may notice some influence.</p>
+        <p>Here's the same example written in plain JavaScript. It's not quite as nice, but it still seems pretty readable:</p>
+        <div class="ui two column grid">
+          <div class="column"><p>Jasmine:</p>
+<pre><code class="lang-javascript">describe(<span class="string">"Calculator"</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+  <span class="keyword">var</span> calculator = <span class="literal">null</span>;
+
+  beforeEach(<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+    calculator = <span class="keyword">new</span> Calculator();
+  });
+
+  describe(<span class="string">".add()"</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+
+    beforeEach(<span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+      calculator.left = <span class="number">50</span>;
+      calculator.right = <span class="number">70</span>;
+      calculator.add();
+    });
+
+    it(<span class="string">"will sum the 2 numbers"</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+      expect(calculator.total).toBe(<span class="number">120</span>);
+    });
+
+  });
+});</code></pre>
+
+          </div>
+          <div class="column"><p>Semantic Suite:</p>
+<pre><code class="lang-javascript"><span class="string">"Calculator"</span>.features(<span class="keyword">function</span>(){
+  Scenario(<span class="keyword">function</span>(){
+    Given(<span class="string">"calculator"</span>, <span class="keyword">function</span>(){ <span class="keyword">return</span> <span class="keyword">new</span> Calculator(); });
+    When(<span class="keyword">function</span>(){ calculator().left = <span class="number">50</span>; });
+    And(<span class="keyword">function</span>(){ calculator().right = <span class="number">70</span>; });
+    And(<span class="keyword">function</span>(){ calculator().add(); });
+    Then(<span class="keyword">function</span>(){ expect(calculator().total).to.be(<span class="number">120</span>); });
+  });
+});</code></pre>
+
+          </div>
+        </div>
+        <h2>Installation</h2>
+        <ol>
+          <li>Install Node.js</li>
+          <li>`sudo npm i -g semantic-suite`</li>
+        </ol>
+        <h2>Using</h2>`sems my-test-file.coffee`
+      </article>
+    </main>
+  </body>
+</html>
