@@ -49,7 +49,7 @@ block content
           ```coffeescript
           "Calculator".features ->
             "Adding".scenario ->
-              Given 'calculator', -> new Calculator()
+              Given "calculator", -> new Calculator()
               When -> calculator().left = 50
               And  -> calculator().right = 70
               And  -> calculator().add()
@@ -93,7 +93,7 @@ block content
 
           ```javascript
           "Calculator".features(function(){
-            Scenario(function(){
+            "Adding".scenario(function(){
               Given("calculator", function(){ return new Calculator(); });
               When(function(){ calculator().left = 50; });
               And(function(){ calculator().right = 70; });
