@@ -17,8 +17,8 @@
       expect(calculator.total).toBe <span class="number">120</span></code></pre>
 </div><div class="column"><p>Here&#39;s the same example using Semantic Suite.</p>
 <pre><code class="lang-coffeescript"><span class="string">"Calculator"</span>.features -&gt;
-  Scenario -&gt;
-    Given <span class="string">'calculator'</span>, -&gt; <span class="keyword">new</span> Calculator()
+  <span class="string">"Adding"</span>.scenario -&gt;
+    Given <span class="string">"calculator"</span>, -&gt; <span class="keyword">new</span> Calculator()
     When -&gt; calculator().left = <span class="number">50</span>
     And  -&gt; calculator().right = <span class="number">70</span>
     And  -&gt; calculator().add()
@@ -47,7 +47,7 @@
 });</code></pre>
 </div><div class="column"><p>Semantic Suite:</p>
 <pre><code class="lang-javascript"><span class="string">"Calculator"</span>.features(<span class="keyword">function</span>(){
-  Scenario(<span class="keyword">function</span>(){
+  <span class="string">"Adding"</span>.scenario(<span class="keyword">function</span>(){
     Given(<span class="string">"calculator"</span>, <span class="keyword">function</span>(){ <span class="keyword">return</span> <span class="keyword">new</span> Calculator(); });
     When(<span class="keyword">function</span>(){ calculator().left = <span class="number">50</span>; });
     And(<span class="keyword">function</span>(){ calculator().right = <span class="number">70</span>; });
@@ -55,4 +55,4 @@
     Then(<span class="keyword">function</span>(){ expect(calculator().total).to.be(<span class="number">120</span>); });
   });
 });</code></pre>
-</div></div><h2>Installation</h2><ol><li>Install Node.js</li><li>`sudo npm i -g semantic-suite`</li></ol><h2>Using</h2>`sems my-test-file.coffee`</article></main></body></html>
+</div></div><h2>Installation</h2><ol><li>Install Node.js</li><li><code>sudo npm i -g semantic-suite</code></li></ol><h2>Using</h2><code>sems my-test-file.coffee</code></article></main></body></html>
