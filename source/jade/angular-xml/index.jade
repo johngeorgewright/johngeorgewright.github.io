@@ -46,31 +46,30 @@ block content
         :markdown
           ```javascript
           angular
-              .module('blogs', ['xml'])
-              .config(function ($httpProvider) {
-                  $httpProvider.responseInterceptors.push('xmlHttpInterceptor');
-              });
-
-          function BlogsCtrl ($scope, $http) {
+            .module('blogs', ['xml'])
+            .config(function ($httpProvider) {
+              $httpProvider.responseInterceptors.push('xmlHttpInterceptor');
+            })
+            .controller('Blogs', function BlogsCtrl($scope, $http) {
               $scope.blogs = [];
 
               $http.get('blogs.xml').then(function (response) {
-                  var blogs = [],
-                      els = response.xml.find('blog'),
-                      blog,
-                      i;
+                var blogs = [],
+                    els = response.xml.find('blog'),
+                    blog,
+                    i;
 
-                  for (i = 0; i < els.length; i += 1) {
-                      blog = angular.element(els[i]);
-                      blogs.push({
-                        name: blog.attr('name'),
-                        id: blog.attr('id')
-                      });
-                  }
+                for (i = 0; i < els.length; i += 1) {
+                  blog = angular.element(els[i]);
+                  blogs.push({
+                    name: blog.attr('name'),
+                    id: blog.attr('id')
+                  });
+                }
 
-                  $scope.blogs = blogs;
+                $scope.blogs = blogs;
               });
-          }
+            });
           ```
 
           ```xml
@@ -82,7 +81,7 @@ block content
                   <script src="angular-xml.min.js"></script>
                   <script src="blogs.js"></script>
               </head>
-              <body ng-controller="BlogsCtrl">
+              <body ng-controller="Blogs">
                   <ul>
                       <li ng-repeat="blog in blogs">
                           {{blog.id}} - {{blog.name}}
@@ -99,9 +98,9 @@ block content
     ol
       li Download the latest tag.
       li 
-        | Use bower: 
+        | Use bower:&nbsp;
         code bower i --save angular-xml
       li
-        | Or use jsDelivr CDN: 
+        | Or use jsDelivr CDN:&nbsp;
         code /&#47;cdn.jsdelivr.net/angular.xml/0.1.3/angular-xml.min.js
 

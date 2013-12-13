@@ -48,7 +48,7 @@ block content
 
           ```coffeescript
           "Calculator".features ->
-            Scenario ->
+            "Adding".scenario ->
               Given 'calculator', -> new Calculator()
               When -> calculator().left = 50
               And  -> calculator().right = 70
@@ -104,12 +104,11 @@ block content
           ```
 
     h2 Installation
-
     ol
       li Install Node.js
-      li `sudo npm i -g semantic-suite`
+      li
+        code sudo npm i -g semantic-suite
 
     h2 Using
-
-    `sems my-test-file.coffee`
+    code sems my-test-file.coffee
 
