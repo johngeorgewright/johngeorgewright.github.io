@@ -1,8 +1,0 @@
-.container{display:block;margin:0 auto;width:990px}
-.ui.menu ul,.ui.menu li{display:inline;padding:0}
-
-a{color:#f6f959;text-decoration:none}a:hover{text-decoration:underline}
-body{background:#151515 none;color:#eaeaea;font-family:"Open Sans","Helvetica Neue","Helvetica","Arial",sans-serif;margin:0;padding:0}
-code{font-family:Monaco,"Bitstream Vera Sans Mono","Lucida Console",Terminal,monospace;font-size:0.8rem}
-h1.ui.header,h2.ui.header,h3.ui.header,h4.ui.header,h5.ui.header{color:#b5e853;font-family:Monaco,"Bitstream Vera Sans Mono","Lucida Console",Terminal,monospace}hgroup h1.ui.header{margin-bottom:0}hgroup h2.ui.header{color:#666;margin-top:0}hgroup{margin-bottom:2rem}header{border-bottom:1px dashed #b5e853}
-main{padding:1em 0}

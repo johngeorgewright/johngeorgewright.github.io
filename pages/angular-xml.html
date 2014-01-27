@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Home | JGW</title>
+    <title>Angular XML | JGW</title>
     <meta name="description" content="When your website appears in search results in say Google, the text here will be shown underneath your website's title.">
     <meta name="keywords" content="place, your, website, keywoards, here, keep, them, related, to, the, content, of, your, website">
     <meta name="author" content="John Wright"><meta name="generator" content="DocPad v6.60.3" />
@@ -31,7 +31,7 @@
       <div class="container">
         <div class="navbar-header"><a href="/" class="navbar-brand">jgw</a></div>
         <ul class="nav navbar-nav">
-          <li typeof="sioc:Page" about="/pages/angular-xml"><a href="/pages/angular-xml" property="dc:title">Angular XML</a></li>
+          <li typeof="sioc:Page" about="/pages/angular-xml" class="active"><a href="/pages/angular-xml" property="dc:title">Angular XML</a></li>
           <li typeof="sioc:Page" about="/pages/semantic-suite"><a href="/pages/semantic-suite" property="dc:title">Semantic Suite</a></li>
           <li typeof="sioc:Page" about="/pages/angular-auto-value"><a href="/pages/angular-auto-value" property="dc:title">Angular Auto Value</a></li>
         </ul>
@@ -39,15 +39,63 @@
     </nav>
     <div class="container">
       <section id="content" class="content">
-<!-- Main hero unit for a primary marketing message or call to action.-->
-<article>
+<article id="page" class="page">
   <header>
-    <hgroup>
-      <h1>John George Wright</h1>
-      <h2>Github Pages</h2>
-    </hgroup>
+    <h1>Angular XML</h1>
+    <p>XML module for Angular.JS</p>
   </header>
-  <p>Coding stuff... always</p>
+  <div class="page-content"><p>It provides 3 helpers:</p>
+<ol>
+<li><p>A parser to turn an XML string in to a DOM object.</p>
+<pre><code>   function MyCtrl(xmlParser) {
+     var domElement = xmlParser.parse(&#39;&lt;blogs&gt;&lt;blog name=&quot;my first blog&quot; id=&quot;1&quot;/&gt;&lt;/blogs&gt;&#39;);
+     console.log(domElement);
+     // =&gt; #document
+   }
+</code></pre></li>
+<li><p>A filter to convert an XML string in to an <a href="http://docs.angularjs.org/api/angular.element">Angular element</a>.</p>
+<pre><code>   function MyCtrl(xmlFilter) {
+     var xml = xmlFilter(&#39;&lt;blogs&gt;&lt;blog name=&quot;my first blog&quot; id=&quot;1&quot;/&gt;&lt;/blogs&gt;&#39;);
+     console.log(xml.find(&#39;blog&#39;));
+     // =&gt; [blog#1]
+   }
+</code></pre></li>
+<li><p>A HTTP interceptor to turn all you responses in to an <a href="http://docs.angularjs.org/api/angular.element">Angular element</a>.</p>
+<pre><code>   angular
+     .module(&#39;blogs&#39;, [&#39;xml&#39;])
+     .config(function ($httpProvider) {
+       $httpProvider.responseInterceptors.push(&#39;xmlHttpInterceptor&#39;);
+     })
+     .controller(&#39;Blogs&#39;, function BlogsCtrl($scope, $http) {
+       $scope.blogs = [];
+
+       $http.get(&#39;blogs.xml&#39;).then(function (response) {
+         var blogs = [],
+             els = response.xml.find(&#39;blog&#39;),
+             blog,
+             i;
+
+         for (i = 0; i &lt; els.length; i += 1) {
+           blog = angular.element(els[i]);
+           blogs.push({
+             name: blog.attr(&#39;name&#39;),
+             id: blog.attr(&#39;id&#39;)
+           });
+         }
+
+         $scope.blogs = blogs;
+       });
+     });
+</code></pre></li>
+</ol>
+<h2 id="installation">Installation</h2>
+<p>There are 3 options:</p>
+<ol>
+<li>Download the latest tag.</li>
+<li>Use bower: <code>bower i --save angular-xml</code></li>
+<li>Or use jsDelivr CDN: //cdn.jsdelivr.net/angular.xml/0.1.3/angular-xml.min.js</li>
+</ol>
+</div>
 </article></section>
       <hr>
       <footer>
