@@ -1,0 +1,10 @@
+---
+layout: default
+---
+
+article#page.page
+  header
+    h1= document.title
+    if document.intro
+      p= document.intro
+  .page-content!= content

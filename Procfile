@@ -1,3 +1,1 @@
-server: grunt connect:dev
-build: grunt watch
-
+web: node_modules/docpad/bin/docpad-server
