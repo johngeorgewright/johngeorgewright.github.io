@@ -28,3 +28,6 @@ table tbody th {
 footer {
   padding-bottom: 30px;
 }
+code {
+  background: transparent;
+}
