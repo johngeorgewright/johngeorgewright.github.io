@@ -2,6 +2,7 @@ build
 .env
 .exrc
 node_modules
+out
 *.log
 *.swp
 
