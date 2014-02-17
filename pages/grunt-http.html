@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta-->
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Grunt HTTP | JGW</title>
+    <meta name="description" content="When your website appears in search results in say Google, the text here will be shown underneath your website's title.">
+    <meta name="keywords" content="place, your, website, keywoards, here, keep, them, related, to, the, content, of, your, website">
+    <meta name="author" content="John Wright"><meta name="generator" content="DocPad v6.63.3" />
+    <meta name="viewport" content="width=device-width">
+    <!-- Icons-->
+    <link rel="shortcut icon" href="/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="/ico/apple-touch-icon-57-precomposed.png">
+    <!--[if lt IE 9]>
+    <script async src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- Styles--><style >html.wait {
+	cursor: wait !important;
+	opacity: 0;
+	transition: opacity 0.5s ease;
+}</style><link  rel="stylesheet" href="/vendor/prettify.css" /><link  rel="stylesheet" href="/vendor/components-bootstrap/css/bootstrap.css" /><link  rel="stylesheet" href="/styles/style.css" />
+  </head>
+  <body>
+    <!-- Markup-->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" data-toggle="collapse" data-target="#primary-navbar" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="/" class="navbar-brand">jgw</a>
+        </div>
+        <div id="primary-navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li typeof="sioc:Page" about="/pages/angular-xml"><a href="/pages/angular-xml" property="dc:title">Angular XML</a></li>
+            <li typeof="sioc:Page" about="/pages/semantic-suite"><a href="/pages/semantic-suite" property="dc:title">Semantic Suite</a></li>
+            <li typeof="sioc:Page" about="/pages/angular-auto-value"><a href="/pages/angular-auto-value" property="dc:title">Angular Auto Value</a></li>
+            <li typeof="sioc:Page" about="/pages/grunt-http" class="active"><a href="/pages/grunt-http" property="dc:title">Grunt HTTP</a></li>
+            <li typeof="sioc:Page" about="/pages/coffee-views"><a href="/pages/coffee-views" property="dc:title">Coffee Views</a></li>
+            <li typeof="sioc:Page" about="/pages/coffee-views-pure"><a href="/pages/coffee-views-pure" property="dc:title">Pure Coffee Views</a></li>
+            <li typeof="sioc:Page" about="/pages/vim"><a href="/pages/vim" property="dc:title">.Vim</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <section id="content" class="content">
+<article id="page" class="page">
+  <header>
+    <h1>Grunt HTTP</h1>
+  </header>
+  <div class="page-content"><p><a href="https://nodei.co/npm/grunt-http"><img src="https://nodei.co/npm/grunt-http.png" alt="NPM"></a></p>
+<h2 id="getting-started">Getting Started</h2>
+<p>This plugin requires Grunt <code>~0.4.1</code></p>
+<p>If you haven&#39;t used <a href="http://gruntjs.com/">Grunt</a> before, be sure to check out the <a href="http://gruntjs.com/getting-started">Getting Started</a> guide, as it explains how to create a <a href="http://gruntjs.com/sample-gruntfile">Gruntfile</a> as well as install and use Grunt plugins. Once you&#39;re familiar with that process, you may install this plugin with this command:</p>
+<pre><code class="lang-shell">npm install grunt-http --save-dev
+</code></pre>
+<p>Once the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:</p>
+<pre><code class="lang-js">grunt.loadNpmTasks(&#39;grunt-http&#39;);
+</code></pre>
+<h2 id="the-http-task">The &quot;http&quot; task</h2>
+<h3 id="overview">Overview</h3>
+<p>In your project&#39;s Gruntfile, add a section named <code>http</code> to the data object passed into <code>grunt.initConfig()</code>.</p>
+<pre><code class="lang-js">grunt.initConfig({
+  http: {
+    your_service: {
+      options: {
+        url: &#39;your/url.com&#39;,
+      },
+      dest: &#39;optional/file/to/save/response&#39;
+    }
+  }
+})
+</code></pre>
+<p>If you add a source file, the contents will be added to the <code>body</code> option unless another field is specified in the <code>sourceField</code> option.</p>
+<h3 id="options">Options</h3>
+<p>grunt-http uses the <a href="https://github.com/mikeal/request">request</a> module under the hood, and apart from a couple specific to grunt-http options, the rest get passed straight to it. Here&#39;s a copy of the of the module&#39;s option docs. Otherwise, <a href="https://github.com/mikeal/request">go to the repo</a> and have a look at what&#39;s it&#39;s capable of.</p>
+<ul>
+<li><code>uri || url</code> - fully qualified uri or a parsed url object from url.parse(). REQUIRED.</li>
+<li><code>qs</code> - object containing querystring values to be appended to the uri</li>
+<li><code>method</code> - http method, defaults to GET</li>
+<li><code>headers</code> - http headers, defaults to {}</li>
+<li><code>body</code> - entity body for PATCH, POST and PUT requests. Must be buffer or string.</li>
+<li><code>sourceField</code> - A field in the body or form to add the source files&#39; contents to. Can contain full stops to separate object path. Ie &quot;form.js_code&quot;.</li>
+<li><code>form</code> - when passed an object this will set body but to a querystring representation of value and adds Content-type: application/x-www-form-urlencoded; charset=utf-8 header. When passed no option a FormData instance is returned that will be piped to request.</li>
+<li><code>auth</code> - A hash containing values user || username, password || pass, and sendImmediately (optional). <a href="https://github.com/mikeal/request#http-authentication">See more info here</a>.</li>
+<li><code>json</code> - sets body but to JSON representation of value and adds Content-type: application/json header. Additionally, parses the response body as json.</li>
+<li><code>multipart</code> - (experimental) array of objects which contains their own headers and body attribute. Sends multipart/related request. See example below.</li>
+<li><code>followRedirect</code> - follow HTTP 3xx responses as redirects. defaults to true.</li>
+<li><code>followAllRedirects</code> - follow non-GET HTTP 3xx responses as redirects. defaults to false.</li>
+<li><code>maxRedirects</code> - the maximum number of redirects to follow, defaults to 10.</li>
+<li><code>encoding</code> - Encoding to be used on setEncoding of response data. If set to null, the body is returned as a Buffer.</li>
+<li><code>pool</code> - A hash object containing the agents for these requests. If omitted this request will use the global pool which is set to node&#39;s default maxSockets.</li>
+<li><code>pool.maxSockets</code> - Integer containing the maximum amount of sockets in the pool.</li>
+<li><code>timeout</code> - Integer containing the number of milliseconds to wait for a request to respond before aborting the request</li>
+<li><code>proxy</code> - An HTTP proxy to be used. Support proxy Auth with Basic Auth the same way it&#39;s supported with the url parameter by embedding the auth info in the uri.</li>
+<li><code>oauth</code> - Options for OAuth HMAC-SHA1 signing. <a href="https://github.com/mikeal/request#oauth-signing">See more info here</a>.</li>
+<li><code>hawk</code> - Options for <a href="https://github.com/hueniverse/hawk">Hawk signing</a>. The credentials key must contain the necessary signing info, <a href="https://github.com/hueniverse/hawk#usage-example">see hawk docs for details</a>.</li>
+<li><code>strictSSL</code> - Set to true to require that SSL certificates be valid. Note: to use your own certificate authority, you need to specify an agent that was created with that ca as an option.</li>
+<li><code>jar</code> - Set to false if you don&#39;t want cookies to be remembered for future use or define your custom cookie jar (<a href="https://github.com/mikeal/request#examples">see mikeal/request&#39;s examples section</a>)</li>
+<li><code>aws</code> - object containing aws signing information, should have the properties key and secret as well as bucket unless you&#39;re specifying your bucket as part of the path, or you are making a request that doesn&#39;t use a bucket (i.e. GET Services)</li>
+<li><code>httpSignature</code> - Options for the <a href="https://github.com/joyent/node-http-signature/blob/master/http_signing.md">HTTP Signature Scheme</a> using <a href="https://github.com/joyent/node-http-signature">Joyent&#39;s library</a>. The keyId and key properties must be specified. See the docs for other options.</li>
+<li><code>localAddress</code> - Local interface to bind for network connections.</li>
+<li><code>ignoreErrors</code> - Ignore the status code returned (if any).</li>
+</ul>
+<h3 id="usage-examples">Usage Examples</h3>
+<h4 id="google-closure">Google Closure</h4>
+<p>In this example, we&#39;re using google&#39;s closure service to compile a JS file.</p>
+<pre><code class="lang-js">grunt.initConfig({
+  http: {
+    closure: {
+      options: {
+        url: &#39;http://closure-compiler.appspot.com/compile&#39;,
+        method: &#39;POST&#39;,
+        form: {
+          output_info: &#39;compiled_code&#39;,
+          output_format: &#39;text&#39;,
+          compilation_level: &#39;SIMPLE_OPTIMIZATIONS&#39;,
+          warning_level: &#39;default&#39;
+        },
+        sourceField: &#39;form.js_code&#39;
+      },
+      files: {
+        &#39;build/main.js&#39;: &#39;src/main.js&#39;
+      }
+    }
+  }
+});
+</code></pre>
+<h2 id="contributing">Contributing</h2>
+<p>In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using <a href="http://gruntjs.com/">Grunt</a>.</p>
+<h2 id="-release-history-johngeorgewright-grunt-http-releases-"><a href="/johngeorgewright/grunt-http/releases">Release History</a></h2>
+</div>
+</article></section>
+      <hr>
+      <footer>
+        <div>© JGW 2014</div>
+        <div style="font-style:italic; font-size: 12px">This website was last updated at Mon Feb 17 2014 10:41:22 GMT+0000 (GMT)</div>
+      </footer>
+    </div>
+    <!-- Scripts--><script >(function(){
+	/* Did we just livereload? */
+var log = !!(localStorage && console && console.log && true);
+if ( log && localStorage.getItem('/docpad-livereload/reloaded') === 'yes' ) {
+	localStorage.removeItem('/docpad-livereload/reloaded');
+	console.log('LiveReload completed at', new Date())
+}
+
+/* Listen for the regenerated event and perform a reload of the page when the event occurs */
+var listen = function(){
+	var primus = new Primus('/docpad-livereload');
+	primus.on('data', function(data){
+		if ( data && data.message ) {
+			if ( data.message === 'generateBefore' ) {
+				if ( log ) {
+					console.log('LiveReload started at', new Date());
+				}
+				if ( typeof document.getElementsByTagName !== 'undefined' ) {
+	document.getElementsByTagName('html')[0].className += ' wait';
+}
+			}
+			else if ( data.message === 'generateAfter' ) {
+				if ( log ) {
+					localStorage.setItem('/docpad-livereload/reloaded', 'yes');
+				}
+				document.location.reload();
+			}
+		}
+	});
+};
+	/* Inject socket into our page */
+var inject = function(){
+	var t = document.createElement('script');
+	t.type = 'text/javascript';
+	t.async = 'async';
+	t.src = '/primus/primus.js';
+	t.onload = listen;
+	var s = document.getElementsByTagName('script')[0];
+	s.parentNode.insertBefore(t, s);
+};
+	if ( typeof Primus !== 'undefined' ) {
+		listen();
+	} else {
+		inject();
+	}
+})();</script><script defer="defer"  src="/vendor/prettify.js"></script><script defer="defer"  src="/vendor/jquery/jquery.js"></script><script defer="defer"  src="/vendor/components-bootstrap/js/bootstrap.js"></script><script defer="defer"  src="/vendor/log.js"></script><script defer="defer"  src="/vendor/modernizr.js"></script><script defer="defer"  src="/scripts/script.js"></script>
+  </body>
+</html>

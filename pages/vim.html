@@ -29,15 +29,20 @@
     <!-- Markup-->
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
-        <div class="navbar-header"><a href="/" class="navbar-brand">jgw</a></div>
-        <ul class="nav navbar-nav">
-          <li typeof="sioc:Page" about="/pages/angular-xml"><a href="/pages/angular-xml" property="dc:title">Angular XML</a></li>
-          <li typeof="sioc:Page" about="/pages/semantic-suite"><a href="/pages/semantic-suite" property="dc:title">Semantic Suite</a></li>
-          <li typeof="sioc:Page" about="/pages/angular-auto-value"><a href="/pages/angular-auto-value" property="dc:title">Angular Auto Value</a></li>
-          <li typeof="sioc:Page" about="/pages/coffee-views"><a href="/pages/coffee-views" property="dc:title">Coffee Views</a></li>
-          <li typeof="sioc:Page" about="/pages/coffee-views-pure"><a href="/pages/coffee-views-pure" property="dc:title">Pure Coffee Views</a></li>
-          <li typeof="sioc:Page" about="/pages/vim" class="active"><a href="/pages/vim" property="dc:title">.Vim</a></li>
-        </ul>
+        <div class="navbar-header">
+          <button type="button" data-toggle="collapse" data-target="#primary-navbar" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="/" class="navbar-brand">jgw</a>
+        </div>
+        <div id="primary-navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li typeof="sioc:Page" about="/pages/angular-xml"><a href="/pages/angular-xml" property="dc:title">Angular XML</a></li>
+            <li typeof="sioc:Page" about="/pages/semantic-suite"><a href="/pages/semantic-suite" property="dc:title">Semantic Suite</a></li>
+            <li typeof="sioc:Page" about="/pages/angular-auto-value"><a href="/pages/angular-auto-value" property="dc:title">Angular Auto Value</a></li>
+            <li typeof="sioc:Page" about="/pages/grunt-http"><a href="/pages/grunt-http" property="dc:title">Grunt HTTP</a></li>
+            <li typeof="sioc:Page" about="/pages/coffee-views"><a href="/pages/coffee-views" property="dc:title">Coffee Views</a></li>
+            <li typeof="sioc:Page" about="/pages/coffee-views-pure"><a href="/pages/coffee-views-pure" property="dc:title">Pure Coffee Views</a></li>
+            <li typeof="sioc:Page" about="/pages/vim" class="active"><a href="/pages/vim" property="dc:title">.Vim</a></li>
+          </ul>
+        </div>
       </div>
     </nav>
     <div class="container">
@@ -57,7 +62,6 @@
 <li>Uses <em>smartindent</em>.</li>
 <li>Attaches a <code>:set paste</code> and <code>:set nopaste</code> toggle to &lt;F5&gt;.</li>
 <li>Adds line numbers.</li>
-<li>Turns on an option to move the view to search results while typing your search query.</li>
 <li>Adds the ability to have .vimrc configuration per directories</li>
 <li>Sets the &lt;Leader&gt; to <code>,</code>.</li>
 <li>Installs a load of <a href="#what-comes-bundled">plugins</a>.</li>
@@ -86,7 +90,7 @@ make -f make_mingw64.mak
 <li><a href="https://github.com/skammer/vim-css-color">CSS Color</a></li>
 <li><a href="https://github.com/hail2u/vim-css3-syntax">CSS3 Syntax</a></li>
 <li><a href="https://github.com/kien/ctrlp.vim">Ctrl-P</a> - NOTE: Ctrl-P uses a feature to reset the working directory to the selected file&#39;s nearest repo ancestor. This is pretty annoying for svn users so I&#39;ve turned it off.</li>
-<li><a href="https://github.com/Lokaltog/vim-easymotion">Easy Motion</a></li>
+<li><a href="https://github.com/Lokaltog/vim-easymotion">Easy Motion</a> - This also replaces generic searching</li>
 <li><a href="https://github.com/tpope/vim-fugitive.git">Fugitive</a></li>
 <li><a href="https://github.com/nono/vim-handlebars">Handlebars</a></li>
 <li><a href="https://github.com/Yggdroot/indentLine">IndentLine</a></li>
@@ -130,7 +134,7 @@ runtime _vimrc
       <hr>
       <footer>
         <div>© JGW 2014</div>
-        <div style="font-style:italic; font-size: 12px">This website was last updated at Fri Feb 14 2014 15:07:31 GMT+0000 (GMT)</div>
+        <div style="font-style:italic; font-size: 12px">This website was last updated at Mon Feb 17 2014 10:41:22 GMT+0000 (GMT)</div>
       </footer>
     </div>
     <!-- Scripts--><script >(function(){

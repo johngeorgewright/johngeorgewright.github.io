@@ -29,15 +29,20 @@
     <!-- Markup-->
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
-        <div class="navbar-header"><a href="/" class="navbar-brand">jgw</a></div>
-        <ul class="nav navbar-nav">
-          <li typeof="sioc:Page" about="/pages/angular-xml" class="active"><a href="/pages/angular-xml" property="dc:title">Angular XML</a></li>
-          <li typeof="sioc:Page" about="/pages/semantic-suite"><a href="/pages/semantic-suite" property="dc:title">Semantic Suite</a></li>
-          <li typeof="sioc:Page" about="/pages/angular-auto-value"><a href="/pages/angular-auto-value" property="dc:title">Angular Auto Value</a></li>
-          <li typeof="sioc:Page" about="/pages/coffee-views"><a href="/pages/coffee-views" property="dc:title">Coffee Views</a></li>
-          <li typeof="sioc:Page" about="/pages/coffee-views-pure"><a href="/pages/coffee-views-pure" property="dc:title">Pure Coffee Views</a></li>
-          <li typeof="sioc:Page" about="/pages/vim"><a href="/pages/vim" property="dc:title">.Vim</a></li>
-        </ul>
+        <div class="navbar-header">
+          <button type="button" data-toggle="collapse" data-target="#primary-navbar" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="/" class="navbar-brand">jgw</a>
+        </div>
+        <div id="primary-navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li typeof="sioc:Page" about="/pages/angular-xml" class="active"><a href="/pages/angular-xml" property="dc:title">Angular XML</a></li>
+            <li typeof="sioc:Page" about="/pages/semantic-suite"><a href="/pages/semantic-suite" property="dc:title">Semantic Suite</a></li>
+            <li typeof="sioc:Page" about="/pages/angular-auto-value"><a href="/pages/angular-auto-value" property="dc:title">Angular Auto Value</a></li>
+            <li typeof="sioc:Page" about="/pages/grunt-http"><a href="/pages/grunt-http" property="dc:title">Grunt HTTP</a></li>
+            <li typeof="sioc:Page" about="/pages/coffee-views"><a href="/pages/coffee-views" property="dc:title">Coffee Views</a></li>
+            <li typeof="sioc:Page" about="/pages/coffee-views-pure"><a href="/pages/coffee-views-pure" property="dc:title">Pure Coffee Views</a></li>
+            <li typeof="sioc:Page" about="/pages/vim"><a href="/pages/vim" property="dc:title">.Vim</a></li>
+          </ul>
+        </div>
       </div>
     </nav>
     <div class="container">
@@ -103,7 +108,7 @@
       <hr>
       <footer>
         <div>© JGW 2014</div>
-        <div style="font-style:italic; font-size: 12px">This website was last updated at Fri Feb 14 2014 15:07:31 GMT+0000 (GMT)</div>
+        <div style="font-style:italic; font-size: 12px">This website was last updated at Mon Feb 17 2014 10:41:22 GMT+0000 (GMT)</div>
       </footer>
     </div>
     <!-- Scripts--><script >(function(){
