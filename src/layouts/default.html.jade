@@ -64,12 +64,18 @@ html(lang="en")
     nav.navbar.navbar-inverse.navbar-fixed-top
       .container
         .navbar-header
+          button.navbar-toggle(type="button", data-toggle="collapse", data-target="#primary-navbar")
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
           a.navbar-brand(href="/") jgw
-        ul.nav.navbar-nav
-          each doc in getCollection('pages').toJSON()
-            - className = (document.url === doc.url) ? 'active' : null
-            li(typeof="sioc:Page", about=doc.url, class=className)
-              a(href=doc.url, property="dc:title")= doc.title
+        #primary-navbar.collapse.navbar-collapse
+          ul.nav.navbar-nav
+            each doc in getCollection('pages').toJSON()
+              - className = (document.url === doc.url) ? 'active' : null
+              li(typeof="sioc:Page", about=doc.url, class=className)
+                a(href=doc.url, property="dc:title")= doc.title
     .container
       section#content.content!= content
       hr
